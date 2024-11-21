@@ -44,6 +44,7 @@ class ScheduleController extends Controller
         $validated = $request->validate([
             'course_id' => 'required|exists:courses,id',
             'lecturer_id' => 'required|exists:lecturers,id',
+            'status_id' => 'required|exists:status,id',
             'day' => 'required|string',
             'start_time' => 'required|date_format:H:i:s',
             'end_time' => 'required|date_format:H:i:s',
