@@ -72,27 +72,31 @@ class ScheduleController extends Controller
 
         // Validate the incoming request
         $validated = $request->validate([
-            'course_id' => 'nullable|exists:courses,id', // Allow updating course_id
-            'lecturer_id' => 'nullable|exists:lecturers,id', // Allow updating lecturer_id
-            'day' => 'nullable|string', // Allow updating day
-            'start_time' => 'nullable|date_format:H:i:s', // Allow updating start_time
-            'end_time' => 'nullable|date_format:H:i:s', // Allow updating end_time
-            'room' => 'nullable|string', // Allow updating room
-            'material_id' => 'nullable|exists:materials,id', // Allow updating material_id
-            'is_uploaded' => 'nullable|boolean', // Allow updating is_uploaded
+            'course_id' => 'nullable|exists:courses,id',
+            'lecturer_id' => 'nullable|exists:lecturers,id',
+            'status_id' => 'nullable|exists:statuses,id',
+            'day' => 'nullable|string',
+            'start_time' => 'nullable|date_format:H:i:s',
+            'end_time' => 'nullable|date_format:H:i:s',
+            'room' => 'nullable|string',
+            'material_id' => 'nullable|exists:materials,id',
+            'is_uploaded' => 'nullable|boolean',
         ]);
 
         // Update the schedule with validated data
-        // $schedule->update($validated);
+        $schedule->update($validated);
 
-        dd($validated);
+        // Check if the request is an AJAX request
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Schedule updated successfully',
+                'data' => $schedule
+            ]);
+        }
 
-        // Return success response with updated schedule data
-        return response()->json([
-            'success' => true,
-            'message' => 'Schedule updated successfully',
-            'data' => $schedule
-        ]);
+        // Redirect to dashboard with success message
+        return redirect()->route('dashboard')->with('success', 'Schedule updated successfully!');
     }
 
     // Hapus jadwal berdasarkan ID

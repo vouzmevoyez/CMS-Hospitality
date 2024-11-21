@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+    <div class="flex justify-center items-center h-screen">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_resmi_UMS.svg"
+            alt="Universitas Muhammadiyah Surakarta" class="h-1/4 w-1/4">
+    </div>
 </body>
 
 </html>

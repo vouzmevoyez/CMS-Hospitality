@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id(); // ID unik untuk jadwal
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade'); // Relasi ke courses
             $table->foreignId('lecturer_id')->constrained('lecturers')->onDelete('cascade'); // Relasi ke lecturers
+            $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade'); // Relasi ke status
             $table->string('day'); // Hari jadwal (contoh: "Monday")
             $table->time('start_time'); // Waktu mulai
             $table->time('end_time'); // Waktu selesai

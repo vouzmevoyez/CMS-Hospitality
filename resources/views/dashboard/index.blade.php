@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'DASHBOARD')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -80,64 +80,123 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            <select name="status" id="status"
-                                class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:ring focus:ring-blue-300 focus:ring-opacity-40">
-                                <option value="ada">Ada</option>
-                                <option value="dimulai">Dimulai</option>
-                                <option value="selesai">Selesai</option>
-                                <option value="tidak-ada" selected>Tidak Ada</option>
-                            </select>
+                            <!-- Kontainer Flex untuk Tombol dan Ikon -->
+                            <div class="flex items-center space-x-2">
+                                <button
+                                    class="openModalStatus flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform
+                                    @if ($schedule->status_id == 1) bg-green-700 hover:bg-green-800
+                                    @elseif ($schedule->status_id == 2) bg-gray-400 hover:bg-gray-500
+                                    @elseif ($schedule->status_id == 3) bg-yellow-500 hover:bg-yellow-600  <!-- Kuning untuk Dimulai -->
+                                    @elseif ($schedule->status_id == 4) bg-teal-500 hover:bg-teal-600
+                                    @else bg-gray-500 hover:bg-gray-600 @endif rounded-lg focus:outline-none focus:ring focus:ring-opacity-80"
+                                    data-schedule-id="{{ $schedule->id }}" data-status-id="{{ $schedule->status_id }}">
+
+                                    <!-- Ikon Berdasarkan status_id -->
+                                    @if ($schedule->status_id == 1)
+                                        <!-- Status Ada (Tersedia) -->
+                                        <i class="fa-solid fa-circle-check mx-1"></i>
+                                        <span class="mx-1">Ada</span>
+                                    @elseif ($schedule->status_id == 2)
+                                        <!-- Status Tidak Ada (Tidak Tersedia) -->
+                                        <i class="fa-solid fa-circle-xmark mx-1"></i>
+                                        <span class="mx-1">Tidak Ada</span>
+                                    @elseif ($schedule->status_id == 3)
+                                        <!-- Status Dimulai (Mulai) - Menggunakan Kuning -->
+                                        <i class="fa-solid fa-clock mx-1"></i>
+                                        <span class="mx-1">Dimulai</span>
+                                    @elseif ($schedule->status_id == 4)
+                                        <!-- Status Selesai -->
+                                        <i class="fa-solid fa-circle-check mx-1"></i>
+                                        <span class="mx-1">Selesai</span>
+                                    @else
+                                        <!-- Status Tidak Dikenal -->
+                                        <i class="fa-solid fa-circle-xmark mx-1"></i>
+                                        <span class="mx-1">Status Tidak Dikenal</span>
+                                    @endif
+                                </button>
+                            </div>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
-    @include('Components.material-modal')
+    @include('components.material-modal')
+    @include('components.status-modal')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Ambil semua tombol dengan class 'openModal'
-            const modalButtons = document.querySelectorAll('.openModal');
-            const modal = document.getElementById('uploadModal'); // Modal container
-            const closeModalButton = document.getElementById('closeModal');
-            const scheduleIdInput = document.getElementById('schedule_id_input'); // Input untuk schedule_id
-            const courseNameInput = document.getElementById('course_name'); // Input untuk course_name
-            const lecturerNameInput = document.getElementById('lecturer_name'); // Input untuk lecturer_name
-            const courseIdInput = document.getElementById('course_id'); // Input untuk course_id
-            const lecturerIdInput = document.getElementById('lecturer_id'); // Input untuk lecturer_id
+            // Fungsi untuk membuka modal
+            function openModal(modal) {
+                modal.classList.remove('hidden');
+            }
 
-            // Tambahkan event listener untuk setiap tombol
-            modalButtons.forEach((button) => {
+            // Fungsi untuk menutup modal
+            function closeModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            // Fungsi untuk mengisi input modal upload
+            function fillUploadModal(button) {
+                const scheduleId = button.getAttribute('data-schedule-id');
+                const courseName = button.getAttribute('data-course-name');
+                const lecturerName = button.getAttribute('data-lecturer-name');
+                const courseId = button.getAttribute('data-course-id');
+                const lecturerId = button.getAttribute('data-lecturer-id');
+
+                document.getElementById('schedule_id_input').value = scheduleId;
+                document.getElementById('course_name').value = courseName;
+                document.getElementById('lecturer_name').value = lecturerName;
+                document.getElementById('course_id').value = courseId;
+                document.getElementById('lecturer_id').value = lecturerId;
+            }
+
+            // Modal upload
+            const modalUpload = document.getElementById('uploadModal');
+            const closeUploadModalButton = document.getElementById('closeModal');
+            const uploadButtons = document.querySelectorAll('.openModal');
+
+            uploadButtons.forEach((button) => {
                 button.addEventListener('click', () => {
-                    // Ambil data dari tombol
-                    const scheduleId = button.getAttribute('data-schedule-id');
-                    const courseName = button.getAttribute('data-course-name');
-                    const lecturerName = button.getAttribute('data-lecturer-name');
-                    const courseId = button.getAttribute('data-course-id');
-                    const lecturerId = button.getAttribute('data-lecturer-id');
-
-                    console.log(
-                        `Schedule ID: ${scheduleId}, Course Name: ${courseName}, Lecturer Name: ${lecturerName}`
-                    ); // Debugging
-
-                    // Isi input modal dengan data yang sesuai
-                    scheduleIdInput.value = scheduleId;
-                    courseNameInput.value = courseName; // Isi dengan nama course
-                    lecturerNameInput.value = lecturerName; // Isi dengan nama lecturer
-                    courseIdInput.value = courseId; // Isi dengan ID course
-                    lecturerIdInput.value = lecturerId; // Isi dengan ID lecturer
-
-                    // Tampilkan modal
-                    modal.classList.remove('hidden');
+                    fillUploadModal(button);
+                    openModal(modalUpload);
                 });
             });
 
-            // Tutup modal saat tombol "Cancel" diklik
-            closeModalButton.addEventListener('click', () => {
-                modal.classList.add('hidden');
+            closeUploadModalButton.addEventListener('click', () => {
+                closeModal(modalUpload);
             });
+
+            // Modal status
+            const modalStatus = document.getElementById('statusModal');
+            const closeStatusModalButton = document.getElementById('closeStatusModal');
+            const statusButtons = document.querySelectorAll('.openModalStatus');
+
+            statusButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const scheduleId = button.getAttribute('data-schedule-id');
+                    const currentStatus = button.getAttribute(
+                        'data-status-id'); // Misalkan ada atribut ini
+
+                    // Update action URL
+                    const form = modalStatus.querySelector('form#updateStatusForm');
+                    form.setAttribute('action', `/api/schedules/${scheduleId}`);
+
+                    // Set dropdown status ke status yang sesuai
+                    form.querySelector('select[name="status_id"]').value = currentStatus;
+
+                    // Show modal
+                    modalStatus.classList.remove('hidden');
+                });
+            });
+
+
+            closeStatusModalButton.addEventListener('click', () => {
+                modalStatus.classList.add('hidden');
+            });
+
         });
     </script>
 

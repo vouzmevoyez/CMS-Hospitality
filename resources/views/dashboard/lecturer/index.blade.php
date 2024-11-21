@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'DASHBOARD')
+@section('title', 'Lecturers')
 
 @section('content')
     <div class="mb-3">

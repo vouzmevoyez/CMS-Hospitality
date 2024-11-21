@@ -48,7 +48,7 @@ Route::get('/dashboard', function () {
 
     // Pass the data to the view
     return view('dashboard.index', compact('schedules', 'courses', 'lecturers'));
-});
+})->name('dashboard');
 
 Route::get('/dashboard/schedules', function () {
     $schedules = Schedule::all();
