@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\api\UkmController;
+use App\Http\Controllers\Api\UkmController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\LecturerController;
 use App\Http\Controllers\Api\ScheduleController;
