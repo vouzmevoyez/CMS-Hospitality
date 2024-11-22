@@ -81,7 +81,6 @@ class ScheduleController extends Controller
             'start_time' => 'nullable|date_format:H:i:s',
             'end_time' => 'nullable|date_format:H:i:s',
             'room' => 'nullable|string',
-            'is_uploaded' => 'nullable|boolean',
         ]);
 
         // Update the schedule with validated data

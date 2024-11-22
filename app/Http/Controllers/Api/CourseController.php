@@ -44,7 +44,6 @@ class CourseController extends Controller
             'code' => 'required|string|unique:courses,code',
             'name' => 'required|string',
             'description' => 'nullable|string',
-            'class' => 'required|min:1',
         ]);
 
         $course = Course::create($validated);
@@ -71,7 +70,6 @@ class CourseController extends Controller
             'code' => 'sometimes|string|unique:courses,code,' . $id,
             'name' => 'sometimes|string',
             'description' => 'nullable|string',
-            'class' => 'sometimes|min:1',
         ]);
 
         $course->update($validated);
