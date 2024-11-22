@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\UkmController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\LecturerController;
 use App\Http\Controllers\Api\ScheduleController;
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('/schedules', ScheduleController::class);
 Route::apiResource('/courses', CourseController::class);
 Route::apiResource('lecturers', LecturerController::class);
+Route::apiResource('ukms', UkmController::class);

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('code')->unique(); // Kode mata kuliah (misalnya: CS101)
             $table->string('name'); // Nama mata kuliah (misalnya: Pemrograman Dasar)
             $table->text('description')->nullable(); // Deskripsi mata kuliah
-            $table->string('class'); // Kelas
             $table->timestamps(); // Kolom created_at dan updated_at
         });
     }

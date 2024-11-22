@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Course;
+use App\Models\Status;
+use App\Models\Classes;
 use App\Models\Lecturer;
-use App\Models\Material;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,9 +27,13 @@ class Schedule extends Model
         return $this->belongsTo(Lecturer::class);
     }
 
-    public function material()
+    public function status()
     {
-        return $this->hasOne(Material::class);
+        return $this->belongsTo(Status::class);
     }
 
+    public function class()
+    {
+        return $this->belongsTo(Classes::class);
+    }
 }

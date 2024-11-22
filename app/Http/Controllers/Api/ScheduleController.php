@@ -9,10 +9,9 @@ use App\Models\Schedule;
 
 class ScheduleController extends Controller
 {
-    // Tampilkan semua jadwal
     public function index()
     {
-        $schedules = Schedule::with(['course', 'lecturer'])->get();
+        $schedules = Schedule::with(['course', 'lecturer', 'status', 'class'])->get();
 
         return response()->json([
             'success' => true,
@@ -20,10 +19,9 @@ class ScheduleController extends Controller
         ]);
     }
 
-    // Tampilkan detail jadwal berdasarkan ID
     public function show($id)
     {
-        $schedule = Schedule::with(['course', 'lecturer'])->find($id);
+        $schedule = Schedule::with(['course', 'lecturer', 'status', 'class'])->find($id);  // Menambahkan 'status'
 
         if (!$schedule) {
             return response()->json([
@@ -38,6 +36,7 @@ class ScheduleController extends Controller
         ]);
     }
 
+
     // Tambah jadwal baru
     public function store(Request $request)
     {
@@ -45,6 +44,7 @@ class ScheduleController extends Controller
             'course_id' => 'required|exists:courses,id',
             'lecturer_id' => 'required|exists:lecturers,id',
             'status_id' => 'required|exists:statuses,id',
+            'class_id' => 'required|exists:classes,id',
             'day' => 'required|string',
             'start_time' => 'required|date_format:H:i:s',
             'end_time' => 'required|date_format:H:i:s',
@@ -76,11 +76,11 @@ class ScheduleController extends Controller
             'course_id' => 'nullable|exists:courses,id',
             'lecturer_id' => 'nullable|exists:lecturers,id',
             'status_id' => 'nullable|exists:statuses,id',
+            'class_id' => 'nullable|exists:classes,id',
             'day' => 'nullable|string',
             'start_time' => 'nullable|date_format:H:i:s',
             'end_time' => 'nullable|date_format:H:i:s',
             'room' => 'nullable|string',
-            'material_id' => 'nullable|exists:materials,id',
             'is_uploaded' => 'nullable|boolean',
         ]);
 
@@ -97,7 +97,7 @@ class ScheduleController extends Controller
         }
 
         // Redirect to dashboard with success message
-        return redirect()->route('dashboard')->with('success', 'Schedule updated successfully!');
+        return redirect()->route('dashboard.index')->with('success', 'Schedule updated successfully!');
     }
 
     // Hapus jadwal berdasarkan ID

@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Schedules')
+@section('title', 'UKM')
 
 @section('content')
     <div class="mb-6 mt-3">
-        <a href="{{ route('schedules.create') }}"
+        <a href="{{ route('ukms.create') }}"
             class="items-center px-6 py-4 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-red-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            <i class="fa-solid fa-calendar-plus mx-1"></i>
-            <span class="mx-1">Add Schedules</span>
+            <i class="fa-solid fa-plus-circle mx-1"></i>
+            <span class="mx-1">Add UKM</span>
         </a>
     </div>
 
@@ -16,25 +16,10 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Course
+                        Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Lecturer
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Day
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Start Time
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        End Time
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Class
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Room
+                        URL
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -42,42 +27,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($schedules as $schedule)
+                @foreach ($ukms as $ukm)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $schedule->course->name }}
+                            {{ $ukm->name }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $schedule->lecturer->name }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $schedule->day }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $schedule->start_time }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $schedule->end_time }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $schedule->class->name }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $schedule->room }}
+                            <a href="{{ $ukm->url }}" target="_blank" class="text-blue-600 hover:text-blue-900">
+                                {{ $ukm->url }}
+                            </a>
                         </td>
                         <td class="px-6 py-4">
                             <!-- Edit and Delete buttons in one cell -->
                             <div class="flex space-x-4">
                                 <!-- Edit Button -->
-                                <a href="{{ route('schedules.edit', $schedule->id) }}"
+                                <a href="{{ route('ukms.edit', $ukm->id) }}"
                                     class="flex items-center text-blue-600 hover:text-blue-900">
                                     <i class="fa-solid fa-edit mr-2"></i> Edit
                                 </a>
 
                                 <!-- Delete Form -->
-                                <form action="{{ route('schedules.destroy', $schedule->id) }}" method="POST"
-                                    onsubmit="return confirm('Are you sure you want to delete this schedule?')">
+                                <form action="{{ route('ukms.destroy', $ukm->id) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this UKM?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900">

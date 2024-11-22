@@ -1,6 +1,6 @@
 <aside
     class="fixed top-0 left-0 w-56 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 z-10 flex flex-col">
-    <a href="#">
+    <a href="/dashboard">
         <img class="w-auto h-14 -mt-4 -mb-3" src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_resmi_UMS.svg"
             alt="">
     </a>
@@ -43,13 +43,7 @@
                 </a>
 
                 <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    href="/dashboard/materials">
-                    <i class="fa-solid fa-book"></i>
-                    <span class="mx-2 text-sm font-medium">Materials</span>
-                </a>
-
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    href="/dashboard/ukm">
+                    href="/dashboard/ukms">
                     <i class="fa-solid fa-people-group"></i>
                     <span class="mx-2 text-sm font-medium">UKM</span>
                 </a>
@@ -57,11 +51,13 @@
         </nav>
         <!-- Tombol Logout di bagian bawah -->
         <div class="mt-auto">
-            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-red-500 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-white"
-                href="#">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span class="mx-2 text-sm font-medium">Logout</span>
-            </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"
+                    class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-red-500 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-white">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+                </button>
+            </form>
         </div>
     </div>
 </aside>

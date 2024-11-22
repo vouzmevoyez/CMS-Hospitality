@@ -31,19 +31,19 @@
         <div class="flex-1 ml-56 flex flex-col overflow-hidden">
             <!-- Header Section -->
             <div
-                class="text-2xl font-semibold text-gray-800 dark:text-white bg-gray-100 p-6 flex items-center justify-between space-x-3">
+                class="text-2xl font-semibold text-gray-800 dark:text-white bg-gray-100 p-3 flex items-center justify-between space-x-3">
                 <div>
                     @yield('dashboard-title')
                 </div>
-                <div class="font-normal text-sm uppercase flex flex-col justify-center items-center">
-                    <span>{{ date('d-M-Y') }}</span>
+                <div class="font-bold text-sm uppercase flex flex-col justify-center items-center">
+                    <span>{{ date('D, d-M-Y') }}</span>
                     <span>{{ date('H:i') }}</span>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <a class="inline-block px-4 py-3 text-sm font-medium text-black hover:text-gray-500 focus:outline-none focus:ring active:bg-red-500"
+                    {{-- <a class="inline-block px-4 py-3 text-sm font-medium text-black hover:text-gray-500 focus:outline-none focus:ring active:bg-red-500"
                         href="#">
                         <i class="fa-solid fa-bell text-[20px]"></i>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
 
