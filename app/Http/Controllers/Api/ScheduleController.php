@@ -21,7 +21,7 @@ class ScheduleController extends Controller
 
     public function show($id)
     {
-        $schedule = Schedule::with(['course', 'lecturer', 'status', 'class'])->find($id);  // Menambahkan 'status'
+        $schedule = Schedule::with(['course', 'lecturer', 'status', 'class'])->find($id);
 
         if (!$schedule) {
             return response()->json([
