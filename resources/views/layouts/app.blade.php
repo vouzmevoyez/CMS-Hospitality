@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <section class="bg-gray-50 dark:bg-gray-900">
+    <section class="bg-gray-50 ">
         <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
             <div class="w-full max-w-md">
                 @yield('content')

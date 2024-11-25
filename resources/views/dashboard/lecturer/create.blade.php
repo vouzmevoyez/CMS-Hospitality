@@ -5,41 +5,41 @@
 @section('content')
     <h1 class="text-2xl font-semibold mb-4">Create Lecturer</h1>
 
-    <div class="max-w-4xl p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
+    <div class="max-w-4xl p-6 bg-white rounded-md shadow-md ">
         <form action="{{ route('lecturers.store') }}" method="POST">
             @csrf
 
             <div class="mb-4">
-                <label for="name" class="text-gray-700 dark:text-gray-200">Lecturer Name</label>
+                <label for="name" class="text-gray-700 ">Lecturer Name</label>
                 <input type="text" name="name" id="name" value="{{ old('name') }}"
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring">
                 @error('name')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="email" class="text-gray-700 dark:text-gray-200">Email</label>
+                <label for="email" class="text-gray-700 ">Email</label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}"
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring">
                 @error('email')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="phone" class="text-gray-700 dark:text-gray-200">Phone Number</label>
+                <label for="phone" class="text-gray-700 ">Phone Number</label>
                 <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring">
                 @error('phone')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="department" class="text-gray-700 dark:text-gray-200">Department</label>
+                <label for="department" class="text-gray-700 ">Department</label>
                 <input type="text" name="department" id="department" value="{{ old('department') }}"
-                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring">
                 @error('department')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror

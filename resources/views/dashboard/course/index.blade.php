@@ -14,8 +14,8 @@
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Code
@@ -33,9 +33,8 @@
             </thead>
             <tbody>
                 @foreach ($courses as $course)
-                    <tr
-                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class="odd:bg-white odd: even:bg-gray-50 even: border-b ">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             {{ $course->code }}
                         </th>
                         <td class="px-6 py-4">
@@ -47,7 +46,7 @@
                         <td class="px-6 py-4">
                             <!-- Edit Button with Icon -->
                             <a href="{{ route('courses.edit', $course->id) }}"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                class="font-medium text-blue-600  hover:underline">
                                 <i class="fas fa-edit mr-1"></i> Edit
                             </a>
 
@@ -55,8 +54,7 @@
                             <form action="{{ route('courses.destroy', $course->id) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                    class="font-medium text-red-600 dark:text-red-500 hover:underline ml-4">
+                                <button type="submit" class="font-medium text-red-600  hover:underline ml-4">
                                     <i class="fas fa-trash-alt mr-1"></i> Delete
                                 </button>
                             </form>

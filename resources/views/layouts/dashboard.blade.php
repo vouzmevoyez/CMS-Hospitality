@@ -22,7 +22,7 @@
     <link rel="manifest" href="/images/favicon/site.webmanifest" />
 </head>
 
-<body class="bg-white dark:bg-gray-900">
+<body class="bg-white ">
     <div class="flex h-screen">
         <!-- Sidebar: fixed on the left -->
         @include('components.sidebar')
@@ -31,7 +31,7 @@
         <div class="flex-1 ml-56 flex flex-col overflow-hidden">
             <!-- Header Section -->
             <div
-                class="text-2xl font-semibold text-gray-800 dark:text-white bg-gray-100 p-3 flex items-center justify-between space-x-3">
+                class="text-2xl font-semibold text-gray-800  bg-gray-100 p-3 flex items-center justify-between space-x-3">
                 <div>
                     @yield('dashboard-title')
                 </div>

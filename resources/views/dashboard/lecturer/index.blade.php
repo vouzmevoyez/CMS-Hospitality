@@ -12,8 +12,8 @@
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Name
@@ -34,9 +34,8 @@
             </thead>
             <tbody>
                 @foreach ($lecturers as $lecturer)
-                    <tr
-                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class="odd:bg-white odd: even:bg-gray-50 even: border-b ">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             {{ $lecturer->name }}
                         </th>
                         <td class="px-6 py-4">
@@ -51,7 +50,7 @@
                         <td class="px-6 py-4 flex items-center space-x-4">
                             <!-- Edit Button -->
                             <a href="{{ route('lecturers.edit', $lecturer->id) }}"
-                                class="text-blue-600 dark:text-blue-500 hover:underline flex items-center">
+                                class="text-blue-600  hover:underline flex items-center">
                                 <i class="fa-solid fa-pencil-alt mr-2"></i> <!-- Icon Edit -->
                                 <span>Edit</span>
                             </a>
@@ -61,8 +60,7 @@
                                 onsubmit="return confirm('Are you sure you want to delete this lecturer?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                    class="text-red-600 dark:text-red-500 hover:underline flex items-center">
+                                <button type="submit" class="text-red-600  hover:underline flex items-center">
                                     <i class="fa-solid fa-trash mr-2"></i> <!-- Icon Delete -->
                                     <span>Delete</span>
                                 </button>

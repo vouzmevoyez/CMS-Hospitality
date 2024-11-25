@@ -1,5 +1,5 @@
 <aside
-    class="fixed top-0 left-0 w-56 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 z-10 flex flex-col">
+    class="fixed top-0 left-0 w-56 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l   z-10 flex flex-col">
     <a href="/dashboard">
         <img class="w-auto h-14 -mt-4 -mb-3" src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_resmi_UMS.svg"
             alt="">
@@ -8,9 +8,9 @@
     <div class="flex flex-col justify-between flex-1 mt-6">
         <nav class="-mx-3 space-y-6">
             <div class="space-y-3">
-                <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">analytics</label>
+                <label class="px-3 text-xs text-gray-500 uppercase ">analytics</label>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
                     href="/dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -22,27 +22,27 @@
             </div>
 
             <div class="space-y-3">
-                <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400">content</label>
+                <label class="px-3 text-xs text-gray-500 uppercase ">content</label>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
                     href="/dashboard/schedules">
                     <i class="fa-solid fa-calendar-days"></i>
                     <span class="mx-2 text-sm font-medium">Schedules</span>
                 </a>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
                     href="/dashboard/courses">
                     <i class="fa-brands fa-discourse"></i>
                     <span class="mx-2 text-sm font-medium">Courses</span>
                 </a>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
                     href="/dashboard/lecturers">
                     <i class="fa-solid fa-user"></i>
                     <span class="mx-2 text-sm font-medium">Lecturers</span>
                 </a>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
                     href="/dashboard/ukms">
                     <i class="fa-solid fa-people-group"></i>
                     <span class="mx-2 text-sm font-medium">UKM</span>
@@ -54,7 +54,7 @@
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit"
-                    class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-red-500 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-white">
+                    class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-red-500   hover:text-white">
                     <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
                 </button>
             </form>

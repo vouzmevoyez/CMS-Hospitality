@@ -12,12 +12,12 @@
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
             <div
-                class="relative inline-block p-4 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl sm:max-w-sm rounded-xl dark:bg-gray-900 sm:my-8 sm:w-full sm:p-6">
+                class="relative inline-block p-4 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl sm:max-w-sm rounded-xl  sm:my-8 sm:w-full sm:p-6">
                 <div class="text-center">
-                    <h3 class="text-lg font-medium text-gray-800 dark:text-white" id="modal-title">
+                    <h3 class="text-lg font-medium text-gray-800 " id="modal-title">
                         Select Status
                     </h3>
-                    <p class="mt-2 text-gray-500 dark:text-gray-400">
+                    <p class="mt-2 text-gray-500 ">
                         Please select the status.
                     </p>
                 </div>
@@ -27,7 +27,7 @@
                     @method('PUT')
 
                     <div class="mt-4">
-                        <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <label for="status" class="block text-sm font-medium text-gray-700 ">
                             Status
                         </label>
                         <select name="status_id" id="status"
